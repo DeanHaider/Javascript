@@ -1,6 +1,6 @@
 var wordsList = [
-    "matt",
-    "steve",
+    "matthew",
+    "dean",
     "jason",
     "maichael",
     "erik",
@@ -10,8 +10,7 @@ var wordsList = [
 ];
 
 
-var chosenWord = "";
-
+var chosenword = "";
     var lettersInChosenWord = [];
     var blanksAndSuccesses = [];
     var wrongGuesses = [];
@@ -20,13 +19,12 @@ var chosenWord = "";
     var lossCounter = 0;
     var numGuesses = 10;
 
-
     function startGame() {
         numGuesses = 10;
-        chosenWord = wordsList[Math.floor(Math.random() * wordsList.length)];
-        lettersInChosenWord = chosenWord.split("");
-        numBlanks = lettersInChosenWord.length;
-        console.log(chosenWord);
+        chosenword = wordsList[Math.floor(Math.random() * wordsList.length)];
+        lettersInChosenword = chosenword.split("");
+        numBlanks = lettersInChosenword.length;
+        console.log(chosenword);
         blanksAndSuccesses = [];
         wrongGuesses = [];
         console.log(blanksAndSuccesses);
@@ -40,19 +38,18 @@ var chosenWord = "";
         }
     }
     
-    
     function checkLetters(letter) {
         var letterInWord = false;
 
             for (var i = 0; i < numBlanks; i++) {
-                    if (chosenWord[i] === letter) {
+                    if (chosenword[i] === letter) {
                         letterInWord = true;
                     }
             }
   
             if (letterInWord) {
                 for (i = 0; i < numBlanks; i++) {
-                    if (chosenWord[i] === letter) {
+                    if (chosenword[i] === letter) {
                         blanksAndSuccesses[i] = letter;
                     }
                 }
@@ -87,7 +84,7 @@ var chosenWord = "";
         }
     }
     
-    document.onkeyup = function(restartgame) {
+    document.onkeydown = function(restartgame) {
         var guessedletter = String.fromCharCode(restartgame.keyCode).toLowerCase();
         checkLetters(guessedletter);
         gamebegins();
